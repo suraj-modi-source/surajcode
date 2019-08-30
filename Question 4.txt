@@ -1,0 +1,46 @@
+Q4. Write a function to reverse every word of a string.
+
+·Using split and reverse
+
+using System;
+using System.Linq;
+
+public class Reverseword{
+
+public static void Main() {
+
+      
+      string str1 = "Reverse word";
+
+      
+      string Rev = string.Join(" ", str1.Split(' ').Select(st => new String(st.Reverse().ToArray())));
+
+      Console.WriteLine(Rev);
+   }
+}
+
+OUTPUT:esreveR drow
+
+-----Without using split and reverse -----
+
+using System;
+//using System.Linq;
+//using System.Collections;
+
+public class ReverseName{
+
+public static void Main() {
+
+      
+	   string name ="My name is Suraj";
+            char[] arr = name.ToCharArray();
+            string RevName = String.Empty;
+            for (int i = arr.Length - 1; i > -1; i--)
+            {
+                RevName+= arr[i];
+            }
+            Console.WriteLine(RevName);
+}
+}
+
+OUTPUT:jaruS si eman yM

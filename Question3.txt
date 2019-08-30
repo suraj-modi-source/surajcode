@@ -1,0 +1,38 @@
+using Newtonsoft.Json.Linq;
+using System;
+
+namespace QuestionAnswer3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = "{ a: 5, b: { c: { d: 10} } }";
+            JObject jsonVal = JObject.Parse(input);
+            GetJson(jsonVal);
+            Console.ReadKey();
+        }
+
+        public static void GetJson(JObject jsonVal)
+        {
+            foreach (var jItem in jsonVal)
+            {
+                Console.WriteLine(jItem.Key.ToString());
+                try
+                {
+                    if(jItem.Value.First.HasValues)
+                    {
+                        JObject jObject = new JObject();
+                        jObject.Add(jItem.Value.First);
+                        GetJson(jObject);
+                    }
+                }
+                catch
+                {
+
+                }
+                
+            }
+        }
+    }
+}

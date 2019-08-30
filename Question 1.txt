@@ -1,0 +1,82 @@
+1.Difference between ‘this’ and ‘let’ and when to use what, explain with examples.
+
+both keyword (this and let) behaves differently. 
+
+this: this keyword can be use to refer to current instance of class. Accessing private method from within class.
+this keyword used to differentiate between class variables and parameters of same name(Ambiguity sitution)
+ 
+while creating extension method.
+Extension method : public static string Extension(this string str1)-- by this keyword we can identify that its extension method.
+
+Example:
+class Student
+
+    {
+
+        public string name, city
+
+        public long mark = 200;
+
+        public User(string name, string city)
+
+        {
+            this.name = name;
+
+            this.location = location;
+
+        }
+
+        public void GetStuDetails()
+
+        {
+
+            Console.WriteLine("Name: {0}", name);
+
+            Console.WriteLine("City: {0}", location);
+
+            Console.WriteLine("Marks: {0}", Test.GetPercentage(this));
+
+        }
+
+    }
+
+    class Test
+
+    {
+
+        public static double GetPercentage(Student st)
+
+        {
+
+            double s = ((double)200/ 600) * 100;
+
+            return (s);
+
+        }
+
+    } 
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+            Student st = new Student ("Suraj", "ranchi" )  
+	st.GetStuDetails();
+
+        }
+
+    }
+}
+
+
+let keyords: we can use let keyword in LINQ, to declare variable and store data in that variable inside LINQ query.
+example :
+var stu=from student in st.Student let Uniqueid= student.StudentId+student.StudentName
+	select new GetDetails
+{
+StudentName=student.StudentName
+StudentUniqueId = Uniqueid
+}

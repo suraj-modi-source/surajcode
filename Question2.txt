@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QuestionAnswer
+{
+    class Program
+    {
+        static void Main(string[] args)
+      
+            string[] word = { "hi __", "hello world % & *"};
+            List<int> allAscii = new List<int>();
+            for (int i = 0; i < 200; i++)
+            {
+                allAscii.Add(i);
+            }
+            Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
+            Dictionary<int, int> keyValueDulpilcate = new Dictionary<int, int>();
+            foreach (var itemString in word)
+            {
+                foreach (var chars in itemString)
+                {
+                    foreach (var keyItem in allAscii)
+                    {
+                        if(keyItem == (int)chars)
+                        {
+                            if(keyValuePairs.Keys.Contains(keyItem))
+                            {
+                                keyValueDulpilcate[keyItem] = keyValuePairs[keyItem] + 1;
+                                keyValuePairs[keyItem] = keyValueDulpilcate[keyItem];
+                            }
+                            else
+                            {
+                                keyValuePairs.Add(keyItem, 1);
+                                keyValueDulpilcate.Add(keyItem, 1);
+                            }
+                           
+                        }
+                    }
+                }
+            }
+            foreach (var item in keyValueDulpilcate)
+            {
+                Console.WriteLine((char)item.Key + " : " + item.Value + Environment.NewLine);
+            }
+
+        }
+    }
+}

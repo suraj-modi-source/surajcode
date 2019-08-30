@@ -1,0 +1,31 @@
+using System;
+//using System.Linq;
+using System.Collections;
+
+public class Duplicate
+{
+
+public static void Main() 
+{
+
+      
+string[] arr={"SURAJ","KUMAR","MODI","KUMAR"};
+var arrlist = new ArrayList();
+
+for (int i = 0; i < arr.Length; i++) 
+{
+    if (arrlist.Contains(arr[i]) == false) 
+    {
+        arrlist.Add(arr[i]);
+    }
+}
+
+var S = arrlist.ToArray();
+
+for (int i = 0; i < S.Length; i++) {
+    Console.Write(S[i]);
+}
+}
+}
+
+OUPUT:SURAJKUMARMODI
